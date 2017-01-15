@@ -3,6 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var path = require('path')
 
+
 module.exports = {
 
     entry: {
@@ -20,7 +21,7 @@ module.exports = {
     module: {
         loaders: [
             // JS
-            { test: /source\/javascripts\/.*\.js$/, exclude: /(node_modules|\.tmp|build)/, loader: 'babel-loader', query: {presets: ['es2015', 'react']}},
+            { test: /.*\.js$/, exclude: /(node_modules|\.tmp|build)/, loader: 'babel-loader', query: {presets: ['es2015', 'react']}},
 
             // SCSS
             { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!sass"), exclude: [/node_modules/] }, // sassLoader will include node_modules explicitly},
@@ -43,8 +44,8 @@ module.exports = {
 
         // Make React globally available
         new webpack.ProvidePlugin({
-            React: "react",
-            ReactDOM: "react-dom"
+            $: "jquery",
+            jQuery: "jquery"
         }),
 
         // Remove/clean build folder before building

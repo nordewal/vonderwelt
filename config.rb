@@ -46,10 +46,6 @@ activate :blog do |blog|
 end
 
 page "/feed.xml", layout: false
-# Reload the browser automatically whenever files change
-# configure :development do
-#   activate :livereload
-# end
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -59,59 +55,18 @@ page "/feed.xml", layout: false
 # end
 #
 
-
-###
-# Compass
-###
-
-## Change Compass configuration
-#compass_config do |config|
-#  config.add_import_path "bower_components/foundation-sites/scss/"
-#  config.output_style = :compact
-#
-#  # Set this to the root of your project when deployed:
-#  config.http_path = "/"
-#  config.css_dir = "stylesheets"
-#  config.sass_dir = "stylesheets"
-#  config.images_dir = "images"
-#  config.javascripts_dir = "javascripts"
-#end
-
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, :livereload_css_target => 'stylesheets/app.css'
+  activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*stylesheets\/layout.*/]
 end
-
-# Activate sprockets
-# activate :sprockets
-# Add bower's directory to sprockets asset path
-#after_configuration do
-#  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-#  sprockets.append_path File.join "#{root}", @bower_config["directory"]
-#end
-
-# Use the correct vendor prefixes for foundation
-#activate :autoprefixer do |config|
-#  config.browsers = ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3']
-#end
-
-#set :css_dir, 'stylesheets'
-#set :js_dir, 'javascripts'
-#set :images_dir, 'images'
-
-#ignore "bower_components/*"
-#
-#ignore "javascripts/app.js"
-#
-#ignore "javascripts/script.js"
-#
-#ignore /stylesheets\/(?!main).*\.scss/
 
 activate :external_pipeline,
          name: :webpack,
          command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
          source: ".tmp/dist",
          latency: 1
+
+ignore '/stylesheets/layout*'
 
 # Build-specific configuration
 configure :build do

@@ -7,7 +7,6 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= current_resource.data.title
     = stylesheet_link_tag "app"
-    = javascript_include_tag "modernizr"
 
   %body{:class => page_classes}
     .off-canvas-wrapper
@@ -23,4 +22,4 @@
 
         .off-canvas-content{'data-off-canvas-content'=> ''}
           = yield
-    = javascript_include_tag  "all"
+    = javascript_include_tag  "app"
