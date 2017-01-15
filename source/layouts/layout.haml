@@ -6,7 +6,7 @@
     %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= current_resource.data.title
-    = stylesheet_link_tag "app"
+    = stylesheet_link_tag "bundle"
 
   %body{:class => page_classes}
     .off-canvas-wrapper
@@ -22,4 +22,4 @@
 
         .off-canvas-content{'data-off-canvas-content'=> ''}
           = yield
-    = javascript_include_tag  "app.build"
+    = javascript_include_tag  "bundle"

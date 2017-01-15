@@ -57,23 +57,24 @@ page "/feed.xml", layout: false
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*scss/, /.*(?<!\.build)\.js$/]
+  activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*scss/, /.*(?<!bundle)\.js$/]
 end
 
 activate :external_pipeline,
          name: :webpack,
-         command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
+         command: build? ? './node_modules/webpack/bin/webpack.js --bail --optimize-minimize' : './node_modules/webpack/bin/webpack.js --watch -d',
          source: ".tmp/dist",
          latency: 1
 
 ignore '*.scss'
+ignore /.*(?<!bundle)\.js$/
 
 # Build-specific configuration
 configure :build do
-  activate :minify_css
-  activate :minify_javascript
+  ignore '*.js.map'
+  ignore '*.css.map'
   activate :minify_html
-  activate :gzip
+  #activate :gzip
   ## Append a hash to asset urls (make sure to use the url helpers)
   #activate :asset_hash
   #activate :asset_host, :host => '//YOURDOMAIN.cloudfront.net'

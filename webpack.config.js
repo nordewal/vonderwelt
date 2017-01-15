@@ -15,7 +15,7 @@ module.exports = {
 
     output: {
         path: './.tmp/dist',
-        filename: 'javascripts/[name].build.js'
+        filename: 'javascripts/bundle.js'
     },
 
     module: {
@@ -40,7 +40,7 @@ module.exports = {
     plugins: [
 
         // CSS output file
-        new ExtractTextPlugin("stylesheets/app.css", {allChunks: true}),
+        new ExtractTextPlugin("stylesheets/bundle.css", {allChunks: true}),
 
         // Make React globally available
         new webpack.ProvidePlugin({

@@ -11,7 +11,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 # Middleman Gems
 gem "middleman", "~> 4.1"
 gem 'middleman-livereload', :git => 'https://github.com/middleman/middleman-livereload.git', :branch => 'master'
-gem 'middleman-compass', '>= 4.0.0'
+gem 'middleman-minify-html', '~> 3.4.1'
 gem "middleman-blog"
 
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
