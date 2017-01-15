@@ -1,0 +1,17 @@
+.off-canvas {
+  background-color: $light-black;
+  color: $white;
+}
+
+ul.menu {
+  p {
+    text-transform: uppercase;
+    color: $light-grey;
+  }
+  a{
+    color: $grey;
+    &:hover{
+      color: $light-grey;
+    }
+  }
+}

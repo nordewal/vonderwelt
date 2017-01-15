@@ -1,0 +1,26 @@
+!!!
+%html.no-js{:lang => "de"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %title= current_resource.data.title
+    = stylesheet_link_tag "app"
+    = javascript_include_tag "modernizr"
+
+  %body{:class => page_classes}
+    .off-canvas-wrapper
+      .off-canvas-wrapper-inner{'data-off-canvas-wrapper' => ''}
+        .off-canvas.position-left.reveal-for-large{:id => "my-info", 'data-off-canvas' => '', 'data-position' => "left"}
+          %ul.menu
+            %li
+              %p Blog tags
+              %ul.menu
+                - blog.tags.sort.each do |tag, articles|
+                  .li
+                    %a{:href => "#"}= tag
+
+        .off-canvas-content{'data-off-canvas-content'=> ''}
+          = yield
+    = javascript_include_tag  "all"

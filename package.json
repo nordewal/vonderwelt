@@ -1,0 +1,42 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "myblog",
+  "main": "index.js",
+  "scripts": {
+    "start": "$(npm root)/.bin/webpack --watch -d --colors --progress",
+    "build": "$(npm root)/.bin/webpack --bail -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/nordewal/myblog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://gitlab.com/nordewal/myblog",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel": "^6.5.2",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "bourbon": "^4.2.6",
+    "bourbon-neat": "^1.8.0",
+    "clean-webpack-plugin": "^0.1.14",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "foundation-sites": "^6.3.0",
+    "node-sass": "^4.3.0",
+    "postcss-loader": "^1.2.2",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
+  }
+}
