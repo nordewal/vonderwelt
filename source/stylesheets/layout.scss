@@ -1,5 +1,5 @@
 .off-canvas {
-  background-color: #fff;//$light-black;
+  background-color: $light-black;
   color: $white;
 }
 
@@ -8,9 +8,9 @@ ul.menu {
     text-transform: uppercase;
     color: $light-grey;
   }
-  a{
+  a {
     color: $grey;
-    &:hover{
+    &:hover {
       color: $light-grey;
     }
   }

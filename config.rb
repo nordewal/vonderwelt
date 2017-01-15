@@ -57,7 +57,7 @@ page "/feed.xml", layout: false
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*stylesheets\/layout.*/]
+  activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*scss/, /.*(?<!\.build)\.js$/]
 end
 
 activate :external_pipeline,
@@ -66,7 +66,7 @@ activate :external_pipeline,
          source: ".tmp/dist",
          latency: 1
 
-ignore '/stylesheets/layout*'
+ignore '*.scss'
 
 # Build-specific configuration
 configure :build do

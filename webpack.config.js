@@ -15,7 +15,7 @@ module.exports = {
 
     output: {
         path: './.tmp/dist',
-        filename: 'javascripts/[name].js'
+        filename: 'javascripts/[name].build.js'
     },
 
     module: {
