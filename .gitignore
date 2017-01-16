@@ -20,4 +20,5 @@
 /.idea
 /node_modules
 /.tmp
+/tmp
 /Gemfile.lock

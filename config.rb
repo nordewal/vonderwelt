@@ -34,7 +34,7 @@ activate :blog do |blog|
   # blog.year_link = "{year}.html"
   # blog.month_link = "{year}/{month}.html"
   # blog.day_link = "{year}/{month}/{day}.html"
-  # blog.default_extension = ".markdown"
+  blog.default_extension = ".md.erb"
 
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
@@ -47,6 +47,11 @@ end
 
 page "/feed.xml", layout: false
 
+Tilt::SYMBOL_ARRAY_SORTABLE = false
+
+require "lib/custom_helpers"
+helpers CustomHelpers
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -55,10 +60,22 @@ page "/feed.xml", layout: false
 # end
 #
 
+#set :css_dir, 'css'
+# set :js_dir, 'js'
+# set :images_dir, 'site_images'
+# set :partials_dir, 'partials'
+#
+# set :relative_links, true
+# activate :relative_assets
+# set :strip_index_file, true
+
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*scss/, /.*(?<!bundle)\.js$/]
 end
+
+activate :middleman_simple_thumbnailer
+
 
 activate :external_pipeline,
          name: :webpack,
@@ -73,7 +90,7 @@ ignore /.*(?<!bundle)\.js$/
 configure :build do
   ignore '*.js.map'
   ignore '*.css.map'
-  activate :minify_html
+#  activate :minify_html
   #activate :gzip
   ## Append a hash to asset urls (make sure to use the url helpers)
   #activate :asset_hash
