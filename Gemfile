@@ -21,6 +21,3 @@ gem 'middleman-autoprefixer'
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
-
-# JavaScript engine V8
-gem 'therubyracer'
