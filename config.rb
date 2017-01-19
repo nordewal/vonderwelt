@@ -47,8 +47,6 @@ end
 
 page "/feed.xml", layout: false
 
-Tilt::SYMBOL_ARRAY_SORTABLE = false
-
 require "lib/custom_helpers"
 helpers CustomHelpers
 

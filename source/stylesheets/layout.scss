@@ -3,13 +3,30 @@
   color: $white;
 }
 
+nav{
+  padding: 40px;
+}
+
 ul.menu {
-  p {
-    text-transform: uppercase;
-    color: $light-grey;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  margin-bottom: 2rem;
+
+  li {
+    display: inline;
   }
+
+  p {
+    color: $light-grey;
+    font-size: .95rem;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+  }
+  
   a {
     color: $grey;
+    font-size: .9rem;
+    line-height: 1.5rem;
+    padding: 0;
     &:hover {
       color: $light-grey;
     }
