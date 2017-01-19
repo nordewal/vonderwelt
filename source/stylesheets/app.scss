@@ -1,4 +1,11 @@
+@import "settings";
+
 @import 'foundation-sites/scss/foundation';
 @include foundation-everything;
+@import '~motion-ui/motion-ui';
+@include motion-ui-transitions;
+
 @import "colors";
+@import "default";
 @import "layout";
+@import "blog_grid";

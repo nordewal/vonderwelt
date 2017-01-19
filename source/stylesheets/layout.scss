@@ -8,7 +8,7 @@ nav{
 }
 
 ul.menu {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  @include font-montserrat;
   margin-bottom: 2rem;
 
   li {
@@ -21,7 +21,7 @@ ul.menu {
     margin-bottom: .5rem;
     text-transform: uppercase;
   }
-  
+
   a {
     color: $grey;
     font-size: .9rem;
