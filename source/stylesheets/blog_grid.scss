@@ -5,8 +5,14 @@ div.blog_grid {
 
 
   .column {
-    padding: 0;
     @include mui-zoom($from: 0.5, $to: 1, $duration: 0.2s);
+    padding: 0;
+    position: relative;
+
+    @include breakpoint(small up){padding-top: 100%;}
+    @include breakpoint(medium up){padding-top: 50%;}
+    @include breakpoint(large up){padding-top: 33.33333%;}
+    @include breakpoint(xlarge up){padding-top: 20%;}
   }
 
   img {
@@ -14,11 +20,20 @@ div.blog_grid {
     border: 0;
     box-shadow: none;
     margin-bottom: 0;
+
+    object-fit: cover;
+    object-position: center;
+    min-height: 100%;
+    min-width: 100%;
   }
 
   a {
     display: block;
-    position: relative;
+    position: absolute;
+    top: 0;
+    height: 101%;
+    width: 101%;
+    overflow: hidden;
 
     &:before{
       content: "";
@@ -53,6 +68,7 @@ div.blog_grid {
       transition: all 0.6s ease;
       top: 45%;
       width: 100%;
+      z-index: 6;
     }
   }
 }
