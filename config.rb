@@ -72,8 +72,15 @@ configure :development do
   activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*scss/, /.*(?<!bundle)\.js$/]
 end
 
-activate :middleman_simple_thumbnailer
-
+# activate :middleman_simple_thumbnailer
+activate :thumbnailer,
+         :dimensions => {
+             :small => '400x',
+             :medium => '800x',
+             :large => '1200x'
+         },
+         :include_data_thumbnails => false
+         #:namespace_directory => %w(gallery)
 
 activate :external_pipeline,
          name: :webpack,
