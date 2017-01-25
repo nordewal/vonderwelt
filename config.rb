@@ -24,11 +24,11 @@ activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   blog.prefix = "blog"
 
-  blog.permalink = "{year}/{month}/{day}/{title}.html"
+  blog.permalink = "{year}/{month}/{title}"
   # Matcher for blog source files
-  blog.sources = "{year}-{month}-{day}-{title}.html"
+  blog.sources = "{year}/{month}/{title}/text.html"
   # blog.taglink = "tags/{tag}.html"
-  # blog.layout = "layout"
+  blog.layout = "article_layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
@@ -50,37 +50,29 @@ page "/feed.xml", layout: false
 require "lib/custom_helpers"
 helpers CustomHelpers
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
-#
+set :css_dir, 'resources' # output of webpack
+set :js_dir, 'resources' # output of webpack
+set :images_dir, 'site_images'
 
-#set :css_dir, 'css'
-# set :js_dir, 'js'
-# set :images_dir, 'site_images'
 # set :partials_dir, 'partials'
-#
-# set :relative_links, true
-# activate :relative_assets
-# set :strip_index_file, true
+set :relative_links, true
+activate :relative_assets
+#set :strip_index_file, true
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, :livereload_css_target => 'stylesheets/app.css', :ignore => [/.*scss/, /.*(?<!bundle)\.js$/]
+  activate :livereload, :livereload_css_target => 'resources/app.css'
 end
 
 # activate :middleman_simple_thumbnailer
-activate :thumbnailer,
-         :dimensions => {
-             :small => '400x',
-             :medium => '800x',
-             :large => '1200x'
-         },
-         :include_data_thumbnails => false
-         #:namespace_directory => %w(gallery)
+#activate :thumbnailer,
+#         :dimensions => {
+#             :small => '400x',
+#             :medium => '800x',
+#             :large => '1200x'
+#         },
+#         :include_data_thumbnails => false
+#         #:namespace_directory => %w(gallery)
 
 activate :external_pipeline,
          name: :webpack,

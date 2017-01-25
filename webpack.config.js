@@ -14,21 +14,24 @@ module.exports = {
     },
 
     output: {
-        path: './.tmp/dist',
-        filename: 'javascripts/bundle.js'
+        path: './.tmp/dist/resources',
+        filename: 'bundle.js'
     },
 
     module: {
         loaders: [
+            // smaller files -> directly include in source
+            // { test: /\.(svg|png|gif)$/, loader: '!!url-loader?limit=10000'},
+
+            // larger files
+            { test: /\.(eot|svg|ttf|woff|woff2|otf|png|gif)$/, loader: 'file-loader?name=[name].[hash].[ext]'},
+
             // JS
             { test: /.*\.js$/, exclude: /(node_modules|\.tmp|build)/, loader: 'babel-loader', query: {presets: ['es2015', 'react']}},
 
             // SCSS
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap"), exclude: [/node_modules/] }, // sassLoader will include node_modules explicitly
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css?sourceMap!resolve-url-loader!sass?sourceMap"), exclude: [/node_modules/] }, // sassLoader will include node_modules explicitly
             { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize&sourceMap")  },
-
-            // FONTS
-            { test: /\.(eot|svg|ttf|woff|woff2|otf)$/, loader: 'file?name=[name].[ext]'}
 
         ],
     },
@@ -40,7 +43,7 @@ module.exports = {
     plugins: [
 
         // CSS output file
-        new ExtractTextPlugin("stylesheets/bundle.css", {allChunks: true}),
+        new ExtractTextPlugin("bundle.css", {allChunks: true}),
 
         // Make React globally available
         new webpack.ProvidePlugin({

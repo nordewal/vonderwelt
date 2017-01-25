@@ -4,6 +4,8 @@
 @include foundation-everything;
 @import '~motion-ui/motion-ui';
 @include motion-ui-transitions;
+@import '~photoswipe/dist/photoswipe';
+@import '~photoswipe/dist/default-skin/default-skin';
 
 @import "colors";
 @import "default";

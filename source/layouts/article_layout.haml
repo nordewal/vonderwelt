@@ -1,0 +1,8 @@
+= wrap_layout :layout do
+  %article
+    Some nice wrapper
+    = current_article.metadata[:page].inspect
+    = current_article.path.inspect
+    = link_to current_article.title, current_article
+    = partial "partials/photoswipe.html.haml"
+    = yield
