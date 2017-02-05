@@ -1,8 +1,10 @@
 = wrap_layout :layout do
-  %article
-    = partial "partials/photoswipe.html.haml"
-    = yield
-    .my-gallery{:itemscope => '', :itemtype=>"http://schema.org/ImageGallery"}
-      .grid-sizer
-      - article_images(current_article).each do |img_name|
-        = partial(:'partials/gallery_item.html.haml', :locals => {:img_name => img_name})
+  .main
+    .content
+      %article
+        = partial "partials/photoswipe.html.haml"
+        = yield
+        .my-gallery{:itemscope => '', :itemtype=>"http://schema.org/ImageGallery"}
+          .grid-sizer
+          - article_images(current_article).each do |img_name|
+            = partial(:'partials/gallery_item.html.haml', :locals => {:img_name => img_name})

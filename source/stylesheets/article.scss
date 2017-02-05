@@ -1,0 +1,39 @@
+article{
+
+  p {
+    font-family: Raleway, "Helvetica Neue", Arial, Helvetica, Verdana, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+    color: #525452;
+
+    &:first-of-type:first-letter{
+      color: #333;
+      float: left;
+      font-size: 6rem;
+      line-height: 5rem;
+      font-weight: 700;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+    }
+  }
+
+  }
+
+
+.grid-sizer, .grid-item {
+  width: 33%;
+  margin-bottom: 20px;
+
+  @include breakpoint(medium down){
+    width: 50%;
+  }
+
+  @include breakpoint(small down){
+    width: 100%;
+  }
+
+  img {
+    padding: 0 10px 0;
+  }
+}
