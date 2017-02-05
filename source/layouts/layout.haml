@@ -29,5 +29,9 @@
                       %a{:href => "#"}= year
 
         .off-canvas-content{'data-off-canvas-content'=> ''}
+          .title-bar.hide-for-large
+            .title-bar-left
+              %button.menu-icon{:type => "button", 'data-open' => "my-info"}
+              %span.title-bar-title Menu
           = yield
     = javascript_include_tag  "bundle"

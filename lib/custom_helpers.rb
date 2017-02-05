@@ -1,3 +1,4 @@
+require 'fastimage'
 module CustomHelpers
   def resp_img(title, image)
     return "![#{title}](images#{image} \"#{title}\")"
@@ -19,5 +20,15 @@ module CustomHelpers
 
   def image_large_path(img_name)
     image_path(img_name.gsub(/\.(.*)$/, '_large.\1'))
+  end
+
+  def image_large_size(article, img_name)
+    image_size(article, img_name, 'large')
+  end
+
+  def image_size(article, img_name, type)
+    postfix = "_#{type}" if !type.nil?
+    size = FastImage.size("source/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, "#{postfix}.\\1")}")
+    "#{size[0]}x#{size[1]}"
   end
 end

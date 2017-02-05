@@ -23,3 +23,5 @@ gem 'middleman-autoprefixer'
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+
+gem 'fastimage'
