@@ -16,13 +16,17 @@
           %nav
             %ul.menu
               %li
+                %a{:href => "/"} Home
+              %li.end-main-menu
+                %a{:href => "/"} Other home
+              %li
                 %p Tags
                 %ul.menu
                   - blog.tags.sort.each do |tag, _|
                     %li
                       %a{:href => "#"}= tag
               %li
-                %p Archive
+                %p Archiv
                 %ul.menu
                   - blog.articles.group_by {|a| a.date.year }.sort.each do |year, _|
                     %li

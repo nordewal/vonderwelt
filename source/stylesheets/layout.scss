@@ -1,10 +1,10 @@
-body{
+body {
   background-color: #F1F1F1;
 }
 
 .main {
   padding: 0 3%;
-  .content{
+  .content {
     padding: 25px;
     max-width: 800px;
     margin: 0 auto;
@@ -18,7 +18,7 @@ body{
   color: $white;
 }
 
-nav{
+nav {
   padding: 40px;
 }
 
@@ -30,20 +30,35 @@ ul.menu {
     display: inline;
   }
 
+  a {
+    color: $light-grey;
+    font-size: .9rem;
+    line-height: 1.5rem;
+    padding: 0;
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  li.end-main-menu a{
+    margin-bottom: 2rem;
+  }
+
   p {
     color: $light-grey;
     font-size: .95rem;
     margin-bottom: .5rem;
     text-transform: uppercase;
   }
-
-  a {
-    color: $grey;
-    font-size: .9rem;
-    line-height: 1.5rem;
-    padding: 0;
-    &:hover {
-      color: $light-grey;
+  ul.menu {
+    a {
+      color: $grey;
+      font-size: .9rem;
+      line-height: 1.5rem;
+      padding: 0;
+      &:hover {
+        color: $light-grey;
+      }
     }
   }
 }
