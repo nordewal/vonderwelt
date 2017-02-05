@@ -59,6 +59,8 @@ set :relative_links, true
 activate :relative_assets
 #set :strip_index_file, true
 
+activate :i18n, :langs => [:de]
+
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload, :livereload_css_target => 'resources/app.css'

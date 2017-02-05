@@ -1,15 +1,31 @@
 article{
 
+  h2{
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .meta{
+    text-align: center;
+    width: 100%;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+
   p {
-    font-family: Raleway, "Helvetica Neue", Arial, Helvetica, Verdana, sans-serif;
     font-size: 0.9rem;
     line-height: 1.8rem;
     color: #525452;
+    text-align: justify;
 
+    /* dropcap */
     &:first-of-type:first-letter{
       color: #333;
-      float: left;
       font-size: 6rem;
+      text-transform: uppercase;
+      float: left;
       line-height: 5rem;
       font-weight: 700;
       padding-top: 4px;
@@ -17,23 +33,24 @@ article{
       padding-left: 3px;
     }
   }
+}
 
-  }
+.gallery-grid {
+  display: none;
+  .grid-sizer, .grid-item {
+    width: 33%;
+    margin-bottom: 20px;
 
+    @include breakpoint(medium down) {
+      width: 50%;
+    }
 
-.grid-sizer, .grid-item {
-  width: 33%;
-  margin-bottom: 20px;
+    @include breakpoint(small down) {
+      width: 100%;
+    }
 
-  @include breakpoint(medium down){
-    width: 50%;
-  }
-
-  @include breakpoint(small down){
-    width: 100%;
-  }
-
-  img {
-    padding: 0 10px 0;
+    img {
+      padding: 0 10px 0;
+    }
   }
 }
