@@ -4,7 +4,7 @@ import 'foundation-sites/dist/js/foundation';
 import Article from './article.js';
 new Article();
 
-import Layout from './layout.js';
-new Layout();
+import Index from './index.js';
+new Index();
 
 $(document).foundation();

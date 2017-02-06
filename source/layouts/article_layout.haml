@@ -7,7 +7,7 @@
         %img{:src=>image_small_path(current_article, article_images(current_article)[0])}
         %img
         = yield
-        .gallery-grid{:itemscope => '', :itemtype=>"http://schema.org/ImageGallery"}
+        .gallery-grid
           .grid-sizer
           - article_images(current_article).each do |img_name|
             = partial(:'partials/gallery_item.html.haml', :locals => {:img_name => img_name})

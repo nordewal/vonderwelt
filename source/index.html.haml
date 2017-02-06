@@ -2,10 +2,11 @@
 title: Welcome to Middleman
 ---
 
-.row.small-up-1.medium-up-2.large-up-3.xlarge-up-5.blog_grid
+.blog-grid
+  .grid-sizer
   - blog.articles[0...10].each do |article|
     - 0.upto(4) do |i|
-      .column
+      .grid-item
         = link_to(article) do
-          %img{:src => image_small_path(article, article_images(article)[i])}
+          %img.init{:src => image_small_path(article, article_images(article)[i])}
           %p=article.title

@@ -4,6 +4,9 @@ import Masonry from 'masonry-layout/dist/masonry.pkgd';
 
 function Article() {
     var galleryGrid = 'div.gallery-grid';
+    if($(galleryGrid).length == 0)
+        return
+
     Foundation.onImagesLoaded($(galleryGrid + ' img'), function () {
         $(galleryGrid).css('display', 'block');
         var msnry = new Masonry(galleryGrid, {
