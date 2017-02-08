@@ -12,10 +12,10 @@ function Map() {
         // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
         var mapOptions = {
             // How zoomed in you want the map to start at (always required)
-            zoom: 3,
+            zoom: 4,
 
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(36.6406, 78.8373),
+            center: new google.maps.LatLng(20, 65),
 
             // How you would like to style the map.
             // This is where you would paste any style found on Snazzy Maps.
