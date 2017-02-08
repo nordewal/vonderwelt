@@ -10,7 +10,8 @@ div.blog-grid {
     @include breakpoint(small up){ width: 100%;}
     @include breakpoint(medium up){width: 50%;}
     @include breakpoint(large up){ width: 33.33333%;}
-    @include breakpoint(xlarge up){width: 20%;}
+    @media screen and (min-width: 55em){ width: 25%}
+    @media screen and (min-width: 90em){width: 20%;}
 
     margin-bottom: 0;
   }
