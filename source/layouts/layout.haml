@@ -9,6 +9,8 @@
     %title= current_resource.data.title
     = stylesheet_link_tag "bundle"
 
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBwzJAQLP6pYc7_aoMRQmmbWiR6Uvhs7As"
+
   %body{:class => page_classes}
     .off-canvas-wrapper
       .off-canvas-wrapper-inner{'data-off-canvas-wrapper' => ''}
@@ -18,7 +20,7 @@
               %li
                 %a{:href => "/"} Home
               %li
-                %a{:href => "/"} Karte
+                %a{:href => "/map.html"} Karte
               %li.end-main-menu
                 %a{:href => "/"} About
               %li

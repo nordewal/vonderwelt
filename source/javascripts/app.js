@@ -7,4 +7,7 @@ new Article();
 import Index from './index.js';
 new Index();
 
+import Map from './map.js';
+new Map();
+
 $(document).foundation();
