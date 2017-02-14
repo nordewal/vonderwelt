@@ -1,11 +1,7 @@
 
 div.blog-grid {
-
-
-
-  .grid-item, .grid-sizer {
+  .real-grid-item, .grid-sizer {
     position: relative;
-    //display: inline-block;
 
     @include breakpoint(small up){ width: 100%;}
     @include breakpoint(medium up){width: 50%;}
@@ -34,7 +30,7 @@ div.blog-grid {
   }
 
   a {
-    @include mui-zoom($from: 0.5, $to: 1, $duration: 0.2s);
+    @include mui-zoom($from: 0.4, $to: 1, $duration: 0.25s);
     display: block;
     padding-top: 100%;
 

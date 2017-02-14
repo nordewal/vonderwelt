@@ -22,3 +22,7 @@
 /.tmp
 /tmp
 /Gemfile.lock
+
+# ignore blog images
+source/blog/**/*.jpg
+source/blog/**/*.JPG
