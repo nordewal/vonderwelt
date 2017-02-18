@@ -1,7 +1,7 @@
 {
-  "name": "myblog",
+  "name": "vonderwelt.ch",
   "version": "1.0.0",
-  "description": "myblog",
+  "description": "vonderwelt.ch",
   "main": "index.js",
   "scripts": {
     "start": "$(npm root)/.bin/webpack --watch -d --colors --progress",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/nordewal/myblog.git"
+    "url": "git+https://github.com/nordewal/vonderwelt.git"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,7 @@
   "bugs": {
     "url": ""
   },
-  "homepage": "https://gitlab.com/nordewal/myblog",
+  "homepage": "https://github.com/nordewal/vonderwelt",
   "devDependencies": {
     "autoprefixer": "^6.6.1",
     "babel": "^6.5.2",
