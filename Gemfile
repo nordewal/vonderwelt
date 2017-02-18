@@ -17,6 +17,9 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 
 gem 'middleman-s3_sync', :git => 'https://github.com/nordewal/middleman-s3_sync', :branch => 'master'
 
+gem 'middleman-gh-pages'
+
+
 # Vendor prefixes for sass
 gem 'middleman-autoprefixer'
 
