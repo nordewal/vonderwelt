@@ -75,6 +75,7 @@ ignore '*.scss'
 ignore /.*(?<!bundle)\.js$/
 ignore '*.fsh'
 ignore '/partials/*'
+ignore /^((?!_(large|medium|small)).)*.jpg$/i
 
 # Build-specific configuration
 configure :build do
