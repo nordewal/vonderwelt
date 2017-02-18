@@ -18,23 +18,23 @@
           %nav
             %ul.menu
               %li
-                %a{:href => "/#"} Home
+                = link_to('Home', '/index.html')
               %li
-                %a{:href => "/map.html"} Karte
+                = link_to('Karte', '/map.html')
               %li.end-main-menu
-                %a{:href => "/#"} About
+                = link_to('About', '/index.html')
               %li
                 %p Tags
                 %ul.menu.tags
                   - blog.tags.sort.each do |tag, _|
                     %li
-                      = link_to(tag, '/', :fragment => tag)
+                      = link_to(tag, '/index.html', :fragment => tag)
               %li
                 %p Archiv
                 %ul.menu.tags
                   - blog.articles.group_by {|a| a.date.year }.sort.each do |year, _|
                     %li
-                      = link_to(year, '/', :fragment => year)
+                      = link_to(year, '/index.html', :fragment => year)
 
         .off-canvas-content{'data-off-canvas-content'=> ''}
           .title-bar.hide-for-large

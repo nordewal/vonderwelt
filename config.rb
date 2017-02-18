@@ -24,9 +24,9 @@ activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   blog.prefix = "blog"
 
-  blog.permalink = "{year}/{month}/{title}"
+  blog.permalink = "{year}/{month}/{title}/index.html"
   # Matcher for blog source files
-  blog.sources = "{year}/{month}/{title}/text.html"
+  blog.sources = "{year}/{month}/{title}/index.html"
   # blog.taglink = "tags/{tag}.html"
   blog.layout = "article_layout"
   # blog.summary_separator = /(READMORE)/
@@ -57,43 +57,40 @@ set :images_dir, 'site_images'
 # set :partials_dir, 'partials'
 set :relative_links, true
 activate :relative_assets
-#set :strip_index_file, true
+set :strip_index_file, false
 
 activate :i18n, :langs => [:de]
 
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload, :livereload_css_target => 'resources/app.css'
+  activate :external_pipeline,
+           name: :webpack,
+           command: './node_modules/webpack/bin/webpack.js --watch -d',
+           source: ".tmp/dist",
+           latency: 1
 end
-
-# activate :middleman_simple_thumbnailer
-#activate :thumbnailer,
-#         :dimensions => {
-#             :small => '400x',
-#             :medium => '800x',
-#             :large => '1200x'
-#         },
-#         :include_data_thumbnails => false
-#         #:namespace_directory => %w(gallery)
-
-activate :external_pipeline,
-         name: :webpack,
-         command: build? ? './node_modules/webpack/bin/webpack.js --bail --optimize-minimize' : './node_modules/webpack/bin/webpack.js --watch -d',
-         source: ".tmp/dist",
-         latency: 1
 
 ignore '*.scss'
 ignore /.*(?<!bundle)\.js$/
+ignore '*.fsh'
+ignore '/partials/*'
 
 # Build-specific configuration
 configure :build do
   ignore '*.js.map'
   ignore '*.css.map'
 #  activate :minify_html
-  #activate :gzip
+  activate :gzip
   ## Append a hash to asset urls (make sure to use the url helpers)
   #activate :asset_hash
-  #activate :asset_host, :host => '//YOURDOMAIN.cloudfront.net'
+  activate :asset_host, :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/myblog'
+
+  activate :external_pipeline,
+           name: :webpack,
+           command: './node_modules/webpack/bin/webpack.js --bail --optimize-minimize',
+           source: ".tmp/dist",
+           latency: 1
 end
 
 #activate :deploy do |deploy|
@@ -103,3 +100,19 @@ end
 #  deploy.path   = "~/apps/xyt"
 #  deploy.flags  = "-avz --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r"
 #end
+
+
+# s3 sync
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                     = 'myblog' # The name of the S3 bucket you are targeting. This is globally unique.
+  s3_sync.region                     = ''     # The AWS region for your bucket.
+  s3_sync.delete                     = false # We delete stray files by default.
+  s3_sync.after_build                = false # We do not chain after the build step by default.
+  s3_sync.prefer_gzip                = true
+  s3_sync.path_style                 = true
+  s3_sync.reduced_redundancy_storage = false
+  s3_sync.acl                        = 'public-read'
+  s3_sync.encryption                 = false
+  s3_sync.prefix                     = ''
+  s3_sync.version_bucket             = false
+end

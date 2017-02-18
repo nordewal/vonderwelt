@@ -13,10 +13,9 @@ gem "middleman", "~> 4.1"
 gem 'middleman-livereload', :git => 'https://github.com/middleman/middleman-livereload.git', :branch => 'master'
 gem 'middleman-minify-html', '~> 3.4.1'
 gem "middleman-blog"
-#gem 'middleman-simple-thumbnailer'
-gem 'middleman-thumbnailer', :git => 'https://github.com/nordewal/middleman-thumbnailer', :branch => 'mm4'
-
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
+
+gem 'middleman-s3_sync', :git => 'https://github.com/nordewal/middleman-s3_sync', :branch => 'master'
 
 # Vendor prefixes for sass
 gem 'middleman-autoprefixer'

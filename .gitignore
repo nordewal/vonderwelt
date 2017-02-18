@@ -22,6 +22,7 @@
 /.tmp
 /tmp
 /Gemfile.lock
+/.s3_sync
 
 # ignore blog images
 source/blog/**/*.jpg
