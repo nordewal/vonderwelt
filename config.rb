@@ -81,11 +81,11 @@ ignore /^((?!_(large|medium|small)).)*.jpg$/i
 configure :build do
   ignore '*.js.map'
   ignore '*.css.map'
-#  activate :minify_html
-#  activate :gzip
   ## Append a hash to asset urls (make sure to use the url helpers)
   #activate :asset_hash
-  activate :asset_host, :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt'
+  activate :asset_host,
+    :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt',
+    :ignore => [/(js|css)$/]
 
   activate :external_pipeline,
            name: :webpack,
@@ -105,6 +105,8 @@ end
 
 # s3 sync
 activate :s3_sync do |s3_sync|
+#  ignore '*.css'
+#  ignore '*.html'
   s3_sync.bucket                     = 'vonderwelt' # The name of the S3 bucket you are targeting. This is globally unique.
   s3_sync.region                     = ''     # The AWS region for your bucket.
   s3_sync.delete                     = false # We delete stray files by default.
