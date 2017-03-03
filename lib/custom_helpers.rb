@@ -11,7 +11,7 @@ module CustomHelpers
     Dir.glob("source/#{File.dirname(article.path)}/*").grep(/^.*(?<!_small|large)\.(jpg|png)$/i) do |item|
       images << File.basename(item)
     end
-    images
+    images.sort{ |x,y| x.downcase <=> y.downcase }
   end
 
   def image_small_path(article, img_name)
