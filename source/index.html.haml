@@ -5,7 +5,7 @@ title: Welcome to Middleman
 .blog-grid
   .grid-sizer
   - blog.articles[0...10].each do |article|
-    - 0.upto(4) do |i|
+    - 0.upto(1) do |i|
       .grid-item.real-grid-item{'data-tags': "#{article.tags.join(' ')} #{article.date.year}"}
         = link_to(article) do
           %img.init{:src => image_small_path(article, article_images(article)[i])}
