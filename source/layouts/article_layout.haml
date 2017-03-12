@@ -11,3 +11,6 @@
           - article_images(current_article).each do |img_name|
             = partial(:'partials/gallery_item.html.haml', :locals => {:img_name => img_name})
         = partial "partials/photoswipe.html.haml"
+        .article_navigation
+          = link_to('VORHERIGER', current_article.previous_article, :class => "prev #{current_article.previous_article != nil ? "" : "inactive"}")
+          = link_to('NÄCHSTER', current_article.next_article, :class => "next #{current_article.next_article != nil ? "" : "inactive"}")

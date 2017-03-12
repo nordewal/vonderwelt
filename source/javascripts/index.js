@@ -11,23 +11,22 @@ function Index() {
 
     var msnry = null
 
-    Foundation.onImagesLoaded($(blogGrid + ' img'), function () {
+    function initMasnry() {
         msnry = new Masonry(blogGrid, {
             itemSelector: '.grid-item',
             columnWidth: '.grid-sizer',
             percentPosition: true,
-            transitionDuration: '0.6'
+            transitionDuration: '0.6s'
         });
+        showTagged()
 
-        showTagged();
-        $(blogGrid + ' img').removeClass('init');
-
-         $('div.blog-grid div.grid-item a').each(function (i, elem) {
-             MotionUI.animateIn(elem, 'zoom-in');
+        $(blogGrid + ' a').each(function(i, a){
+          Foundation.onImagesLoaded($(a).find('img'), function () {
+            $(a).find('img').removeClass('init');
+            MotionUI.animateIn($(a), 'zoom-in');
+          });
         });
-
-        msnry.options.transitionDuration = '0.6s'
-    });
+    }
 
     function getShowHideElements() {
         var tag = decodeURIComponent(window.location.hash.replace('#', ''));
@@ -55,11 +54,10 @@ function Index() {
         msnry.layout();
     }
 
-    $(function () {
-        if ($('div.blog-grid').length > 0) {
-            $(window).on('hashchange', showTagged);
-        }
-    })
+    if ($('div.blog-grid').length > 0) {
+        $(window).on('hashchange', showTagged);
+        initMasnry();
+    }
 }
 
 module.exports = Index

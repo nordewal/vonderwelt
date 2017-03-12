@@ -36,8 +36,8 @@ activate :blog do |blog|
   # blog.day_link = "{year}/{month}/{day}.html"
   blog.default_extension = ".md.erb"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
 
   # Enable pagination
   # blog.paginate = true
@@ -66,7 +66,7 @@ configure :development do
   activate :livereload, :livereload_css_target => 'resources/app.css'
   activate :external_pipeline,
            name: :webpack,
-           command: './node_modules/webpack/bin/webpack.js --watch -d',
+           command: './node_modules/webpack/bin/webpack.js --watch --watch-poll -d',
            source: ".tmp/dist",
            latency: 1
 end
@@ -82,7 +82,7 @@ configure :build do
   ignore '*.js.map'
   ignore '*.css.map'
   ## Append a hash to asset urls (make sure to use the url helpers)
-  #activate :asset_hash
+  activate :asset_hash
   activate :asset_host,
     :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt',
     :ignore => [/(js|css)$/]

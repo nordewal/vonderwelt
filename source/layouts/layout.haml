@@ -9,7 +9,6 @@
     %title= current_resource.data.title
     = stylesheet_link_tag "bundle"
 
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBwzJAQLP6pYc7_aoMRQmmbWiR6Uvhs7As"
 
   %body{:class => page_classes}
     .off-canvas-wrapper
@@ -40,6 +39,6 @@
           .title-bar.hide-for-large
             .title-bar-left
               %button.menu-icon{:type => "button", 'data-open' => "my-info"}
-              %span.title-bar-title Menu
+              %span.title-bar-title von der Welt
           = yield
-    = javascript_include_tag  "bundle"
+    = javascript_include_tag "bundle"
