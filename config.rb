@@ -82,7 +82,8 @@ configure :build do
   ignore '*.js.map'
   ignore '*.css.map'
   ## Append a hash to asset urls (make sure to use the url helpers)
-  activate :asset_hash
+  activate :asset_hash,
+    :ignore => [/blog\/.*jpg$/]
   activate :asset_host,
     :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt',
     :ignore => [/(js|css)$/]
