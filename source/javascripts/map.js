@@ -65,9 +65,32 @@ function Map() {
             map.setCenter(center);
         });
 
-        // Draw line
+        var infowindow = new google.maps.InfoWindow();
+
+        // Request JSON with GPS points
+        $.getJSON("https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt/coords.json", function(data) {
+          $.each(data, function(i, item){
+            console.info(item);
+            console.info(item['lat']);
+            console.info(item['lng']);
+            var marker = new google.maps.Marker({
+              position: {lat: item['lat'], lng: item['lng']},
+              map: map,
+              icon: 'https://mt.google.com/vt/icon/name=icons/spotlight/camping_L_8x.png&scale=1',
+              title: item['desc']
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent("<h4>" + marker.title + "</h4><p>Lat: " + item['lat'] + "<br/>Long: " + item['lng'] + "</p>");
+              infowindow.setPosition(marker.position);
+              infowindow.open(map);
+						})
+          });
+        });
+
+        // Draw line for planned route
         var lineCoords = [
-          {lat: 47.54848, lng:7.79601},
+          {lat: 46.97405, lng:7.44633},
           {lat: 45.49094, lng:12.23876},
           {lat: 45.64953, lng:13.77681},
           {lat: 43.50733, lng:16.43981},
@@ -91,6 +114,7 @@ function Map() {
           {lat: 39.76846, lng:64.45582},
           {lat: 39.62803, lng:66.97497},
           {lat: 41.52198, lng:69.39487},
+          {lat: 43.03586, lng: 71.14604},
           {lat: 43.22202, lng:76.85127},
           {lat: 49.33575, lng:81.58202},
           {lat: 51.2086,  lng:81.1148},
@@ -125,7 +149,7 @@ function Map() {
         var path = new google.maps.Polyline({
             path: lineCoords,
             geodesic: true,
-            strokeColor: '#FF0000',
+            strokeColor: '#545454',
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
@@ -144,7 +168,7 @@ function Map() {
         var path2 = new google.maps.Polyline({
             path: lineCoords2,
             geodesic: true,
-            strokeColor: '#FF0000',
+            strokeColor: '#545454',
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
