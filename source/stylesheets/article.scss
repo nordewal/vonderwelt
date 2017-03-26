@@ -41,56 +41,59 @@ article{
       padding-left: 3px;
     }
   }
-}
 
-.gallery-grid {
-  margin-top: 3rem;
-  display: none;
-  .grid-sizer, .grid-item {
-    width: 33%;
-    margin-bottom: 20px;
+  .gallery-grid {
+    margin-top: 3rem;
+    display: none;
+    .grid-sizer, .grid-item {
+      width: 33%;
+      margin-bottom: 20px;
 
-    @include breakpoint(medium down) {
-      width: 50%;
-    }
+      @include breakpoint(medium down) {
+        width: 50%;
+      }
 
-    @include breakpoint(small down) {
-      width: 100%;
-    }
+      @include breakpoint(small down) {
+        width: 100%;
+      }
 
-    img {
-      padding: 0 10px;
+      img {
+        padding: 0 10px;
+      }
     }
   }
-}
 
-.article_navigation {
-  padding-top: 1.5rem;
-  height: 4.5rem;
-  a {
-    @include font-montserrat;
-    font-size: 0.9em;
-    border: 2px $light-black solid;
-    color: $light-black;
-    padding: 0.5em;
+  .article_navigation {
+    padding-top: 1.5rem;
+    height: 4.5rem;
+    a {
+      @include font-montserrat;
+      font-size: 0.9em;
+      border: 2px $light-black solid;
+      color: $light-black;
+      padding: 0.5em;
 
-    &.next {
-      float: left;
-      margin-left: 10px;
+      &.next {
+        float: left;
+        margin-left: 10px;
+      }
+      &.prev {
+        float: right;
+        margin-right: 1rem;
+      }
+      &:hover {
+        color: $light-grey;
+        background-color: $light-black;
+      }
+      &.inactive {
+        border-color: $grey;
+        color: $grey;
+        pointer-events: none;
+        cursor: default;
+      }
     }
-    &.prev {
-      float: right;
-      margin-right: 1rem;
-    }
-    &:hover {
-      color: $light-grey;
-      background-color: $light-black;
-    }
-    &.inactive {
-      border-color: $grey;
-      color: $grey;
-      pointer-events: none;
-      cursor: default;
-    }
+  }
+  .comments {
+    padding-top: 2.5rem;
   }
 }

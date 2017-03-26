@@ -69,6 +69,10 @@ configure :development do
            command: './node_modules/webpack/bin/webpack.js --watch --watch-poll -d',
            source: ".tmp/dist",
            latency: 1
+   activate :disqus do |d|
+     d.shortname = "vonderwelt-dev"
+     # d.shortname = nil  # or setting to `nil` will stop Disqus loading
+  end
 end
 
 ignore '*.scss'
@@ -93,6 +97,10 @@ configure :build do
            command: './node_modules/webpack/bin/webpack.js --bail --optimize-minimize',
            source: ".tmp/dist",
            latency: 1
+   activate :disqus do |d|
+     d.shortname = "vonderwelt-prd"
+     # d.shortname = nil  # or setting to `nil` will stop Disqus loading
+  end
 end
 
 #activate :deploy do |deploy|

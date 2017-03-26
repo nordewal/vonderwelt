@@ -27,3 +27,4 @@ gem 'middleman-autoprefixer'
 gem "builder", "~> 3.0"
 
 gem 'fastimage'
+gem "middleman-disqus"

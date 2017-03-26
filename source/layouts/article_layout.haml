@@ -14,3 +14,5 @@
         .article_navigation
           = link_to('VORHERIGER', current_article.previous_article, :class => "prev #{current_article.previous_article != nil ? "" : "inactive"}")
           = link_to('NÄCHSTER', current_article.next_article, :class => "next #{current_article.next_article != nil ? "" : "inactive"}")
+        .comments
+          = disqus
