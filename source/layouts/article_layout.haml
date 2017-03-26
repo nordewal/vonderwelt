@@ -4,7 +4,7 @@
       %article
         %h2=current_article.title
         .meta=pretty_date(current_article)
-        %img.main{:src=>image_large_path(current_article, article_images(current_article)[0])}
+        %img.main{:src=>image_medium_path(current_article, 'main.jpg')}
         = yield
         .gallery-grid
           .grid-sizer

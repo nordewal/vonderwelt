@@ -15,7 +15,7 @@ function Map() {
             zoom: 4,
 
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(20, 65),
+            center: new google.maps.LatLng(10, 65),
 
             // How you would like to style the map.
             // This is where you would paste any style found on Snazzy Maps.
@@ -149,7 +149,7 @@ function Map() {
         var path = new google.maps.Polyline({
             path: lineCoords,
             geodesic: true,
-            strokeColor: '#545454',
+            strokeColor: '#cc9900',
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
@@ -168,7 +168,7 @@ function Map() {
         var path2 = new google.maps.Polyline({
             path: lineCoords2,
             geodesic: true,
-            strokeColor: '#545454',
+            strokeColor: '#cc9900',
             strokeOpacity: 1.0,
             strokeWeight: 2
         });

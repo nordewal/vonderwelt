@@ -8,7 +8,7 @@ module CustomHelpers
 
   def article_images(article)
     images = []
-    Dir.glob("source/#{File.dirname(article.path)}/*").grep(/^.*(?<!_small|large)\.(jpg|png)$/i) do |item|
+    Dir.glob("source/#{File.dirname(article.path)}/*").grep(/^.*(?<!_small|medium|large)\.(jpg|png)$/i) do |item|
       images << File.basename(item)
     end
     images.sort{ |x,y| x.downcase <=> y.downcase }
@@ -16,6 +16,10 @@ module CustomHelpers
 
   def image_small_path(article, img_name)
     image_path("/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, '_small.\1')}")
+  end
+
+  def image_medium_path(article, img_name)
+    image_path("/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, '_medium.\1')}")
   end
 
   def image_large_path(article, img_name)
