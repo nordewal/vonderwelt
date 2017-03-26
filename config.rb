@@ -98,7 +98,7 @@ configure :build do
            source: ".tmp/dist",
            latency: 1
    activate :disqus do |d|
-     d.shortname = "vonderwelt-prd"
+     d.shortname = "vonderwelt"
      # d.shortname = nil  # or setting to `nil` will stop Disqus loading
   end
 end
