@@ -1,4 +1,5 @@
 #!/bin/fish
+rvm
 bundle exec rake publish
 #s3cmd -r --exclude="*small*" --exclude="*large*" sync source/blog/ s3://vonderwelt-source
 set d (date -u +'%a, %d %b %Y %H:%M:%S GMT' --date 'next Year')
