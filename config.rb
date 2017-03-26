@@ -90,7 +90,7 @@ configure :build do
     :ignore => [/blog\/.*jpg$/]
   activate :asset_host,
     :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt',
-    :ignore => [/(js|css)$/]
+    :ignore => [/(js|css|ico|svg)$/]
 
   activate :external_pipeline,
            name: :webpack,
