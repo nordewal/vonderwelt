@@ -27,3 +27,4 @@
 # ignore blog images
 source/blog/**/*.jpg
 source/blog/**/*.JPG
+source/blog/**/*.xmp
