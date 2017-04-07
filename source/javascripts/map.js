@@ -197,7 +197,6 @@ function Map() {
 
         // draw legend
         var legend = document.getElementById('legend');
-        console.info(legend)
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
     }
 
