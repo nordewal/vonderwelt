@@ -1,3 +1,11 @@
 !!!
 = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBwzJAQLP6pYc7_aoMRQmmbWiR6Uvhs7As"
 %div{:id => 'map'}
+%div{:id => 'legend'}
+  %p
+    %span.done —— gefahrene Route
+    %br
+    %span.planned —— geplante Route
+    %br
+    %img{:src => 'https://mt.google.com/vt/icon/name=icons/spotlight/camping_L_8x.png&scale=1'}
+    %span Übernachtungen

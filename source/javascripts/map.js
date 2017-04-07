@@ -185,13 +185,20 @@ function Map() {
         ];
         var path2 = new google.maps.Polyline({
             path: lineCoords2,
-            geodesic: true,
-            strokeColor: '#cc9900',
-            strokeOpacity: 1.0,
-            strokeWeight: 2
+            strokeOpacity: 0,
+            icons: [{
+              icon: lineSymbol,
+              offset: '0',
+              repeat: '20px'
+            }],
         });
 
         path2.setMap(map);
+
+        // draw legend
+        var legend = document.getElementById('legend');
+        console.info(legend)
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
     }
 
 }
