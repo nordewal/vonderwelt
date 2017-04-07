@@ -70,9 +70,6 @@ function Map() {
         // Request JSON with GPS points
         $.getJSON("https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt/coords.json", function(data) {
           $.each(data, function(i, item){
-            console.info(item);
-            console.info(item['lat']);
-            console.info(item['lng']);
             var marker = new google.maps.Marker({
               position: {lat: item['lat'], lng: item['lng']},
               map: map,
@@ -88,7 +85,26 @@ function Map() {
           });
         });
 
+        // Request JSON with GPS lines
+        $.getJSON("https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt/route.json", function(data) {
+          var path = new google.maps.Polyline({
+              path: data,
+              geodesic: true,
+              strokeColor: '#0000ff',
+              strokeOpacity: 1.0,
+              strokeWeight: 2
+          });
+          path.setMap(map);
+        });
+
         // Draw line for planned route
+        var lineSymbol = {
+          path: 'M 0,-1 0,1',
+          strokeOpacity: 1,
+          scale: 4,
+          strokeColor: '#ff4400',
+          strokeWeight: 2
+        };
         var lineCoords = [
           {lat: 46.97405, lng:7.44633},
           {lat: 45.49094, lng:12.23876},
@@ -148,10 +164,12 @@ function Map() {
         ];
         var path = new google.maps.Polyline({
             path: lineCoords,
-            geodesic: true,
-            strokeColor: '#cc9900',
-            strokeOpacity: 1.0,
-            strokeWeight: 2
+            strokeOpacity: 0,
+            icons: [{
+              icon: lineSymbol,
+              offset: '0',
+              repeat: '20px'
+            }],
         });
 
         path.setMap(map);
