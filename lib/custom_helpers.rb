@@ -13,7 +13,7 @@ module CustomHelpers
     Dir.glob("source/#{File.dirname(article.path)}/*").grep(/^.*(?<!_small|medium|large)\.(jpg|png)$/i) do |item|
       images << File.basename(item)
     end
-    images.sort{ |x,y| x.downcase <=> y.downcase }
+    images.sort{ |x,y| EXIFR::JPEG.new("source/#{File.dirname(article.path)}/#{x}").date_time_original <=> EXIFR::JPEG.new("source/#{File.dirname(article.path)}/#{y}").date_time_original }
   end
 
   def image_small_path(article, img_name)
