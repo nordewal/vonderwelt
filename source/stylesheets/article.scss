@@ -61,6 +61,22 @@ article{
         padding: 0 10px;
       }
     }
+    figure {
+      figcaption {
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 0.4rem;
+        background: rgba(255,255,255,0.75);
+        transition: opacity 0.25s;
+        margin: 0 10px;
+      }
+      &:hover figcaption {
+        opacity: 1;
+      }
+    }
   }
 
   .article_navigation {
@@ -96,4 +112,8 @@ article{
   .comments {
     padding-top: 2.5rem;
   }
+}
+
+.pswp__caption__center {
+  text-align: center;
 }

@@ -1,4 +1,6 @@
 require 'fastimage'
+require 'exifr'
+
 module CustomHelpers
   def resp_img(title, image)
     return "![#{title}](images#{image} \"#{title}\")"
@@ -34,6 +36,11 @@ module CustomHelpers
     postfix = "_#{type}" if !type.nil?
     size = FastImage.size("source/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, "#{postfix}.\\1")}")
     "#{size[0]}x#{size[1]}"
+  end
+
+  def image_desc(article, img_name)
+    exif = EXIFR::JPEG.new("source/#{File.dirname(article.path)}/#{img_name}")
+    exif.image_description
   end
 
   def pretty_date(article)
