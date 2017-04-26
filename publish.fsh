@@ -1,4 +1,7 @@
 #!/bin/fish
+
+rm -r source/blog/**/.comments/
+
 rvm
 middleman build
 
