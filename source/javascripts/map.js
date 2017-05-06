@@ -78,7 +78,7 @@ function Map() {
             });
 
             google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent("<h4>" + marker.title + "</h4><p>Lat: " + item['lat'] + "<br/>Long: " + item['lng'] + "</p>");
+              infowindow.setContent("<h4>" + marker.title + " CEST</h4><p>Lat: " + item['lat'] + "<br/>Long: " + item['lng'] + "</p>");
               infowindow.setPosition(marker.position);
               infowindow.open(map);
 						})
