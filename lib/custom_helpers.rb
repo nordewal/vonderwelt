@@ -40,7 +40,12 @@ module CustomHelpers
 
   def image_desc(article, img_name)
     exif = EXIFR::JPEG.new("source/#{File.dirname(article.path)}/#{img_name}")
-    exif.image_description
+
+    # comments can be in different fields - depending on the encoding :S
+    comment = exif.user_comment
+    desc = exif.image_description
+    real_desc = comment.nil? ? desc : comment
+    real_desc.to_s.force_encoding("UTF-8")
   end
 
   def pretty_date(article)
