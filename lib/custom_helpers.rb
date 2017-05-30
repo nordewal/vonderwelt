@@ -20,6 +20,18 @@ module CustomHelpers
     image_path("/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, '_small.\1')}")
   end
 
+  def image_height(article, img_name, type)
+    postfix = "_#{type}" if !type.nil?
+    size = FastImage.size("source/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, "#{postfix}.\\1")}")
+    size[0]
+  end
+
+  def image_width(article, img_name, type)
+    postfix = "_#{type}" if !type.nil?
+    size = FastImage.size("source/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, "#{postfix}.\\1")}")
+    size[1]
+  end
+
   def image_medium_path(article, img_name)
     image_path("/#{File.dirname(article.path)}/#{img_name.gsub(/\.(.*)$/, '_medium.\1')}")
   end

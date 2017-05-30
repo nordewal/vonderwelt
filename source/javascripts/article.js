@@ -7,8 +7,8 @@ function Article() {
     if($(galleryGrid).length == 0)
         return
 
-    //Foundation.onImagesLoaded($(galleryGrid + ' img'), function () {
-        //$(galleryGrid).css('display', 'block');
+    Foundation.onImagesLoaded($(galleryGrid + ' img'), function () {
+        $(galleryGrid).css('display', 'block');
         var msnry = new Masonry(galleryGrid, {
             // options
             itemSelector: '.grid-item',
@@ -223,7 +223,7 @@ function Article() {
             }
         };
         initPhotoSwipeFromDOM(galleryGrid);
-    //});
+    });
 }
 
 module.exports = Article
