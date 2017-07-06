@@ -17,7 +17,7 @@
       .off-canvas-wrapper-inner{'data-off-canvas-wrapper' => ''}
         .off-canvas.position-left.reveal-for-large{:id => "my-info", 'data-off-canvas' => '', 'data-position' => "left"}
           %nav
-            %ul.menu
+            %ul.mymenu
               %li
                 = link_to('Home', '/index.html')
               %li
@@ -26,13 +26,13 @@
                 = link_to('About', '/about.html')
               %li
                 %p Tags
-                %ul.menu.tags
+                %ul.mymenu.tags
                   - blog.tags.sort.each do |tag, _|
                     %li
                       = link_to(tag, '/index.html', :fragment => tag)
               %li
                 %p Archiv
-                %ul.menu.tags
+                %ul.mymenu.tags
                   - blog.articles.group_by {|a| a.date.year }.sort.each do |year, _|
                     %li
                       = link_to(year, '/index.html', :fragment => year)

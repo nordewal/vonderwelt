@@ -33,7 +33,6 @@ function Article() {
                 for (var i = 0; i < numNodes; i++) {
 
                     figureEl = thumbElements[i]; // <figure> element
-                    console.info(figureEl)
 
                     // include only element nodes
                     if (figureEl.nodeType !== 1) {

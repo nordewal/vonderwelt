@@ -15,7 +15,7 @@ function Map() {
             zoom: 4,
 
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(10, 65),
+            center: new google.maps.LatLng(30, -105),
 
             // How you would like to style the map.
             // This is where you would paste any style found on Snazzy Maps.
