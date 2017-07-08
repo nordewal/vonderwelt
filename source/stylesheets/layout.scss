@@ -17,6 +17,10 @@ body {
   color: $white;
 }
 
+.off-canvas-content.off-canvas-content{
+  transform: none;
+}
+
 nav {
   padding: 40px;
 }
