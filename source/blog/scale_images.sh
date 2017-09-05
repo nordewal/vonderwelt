@@ -1,4 +1,5 @@
 #!/bin/bash
+export MAGICK_OCL_DEVICE=OFF
 find . -name "*_large.jpg" -or -name "*_medium.jpg" -or -name "*_small.jpg" |xargs rm
 for i in $(find . -iname "*jpg"); do
   n=$(echo "$i"|sed 's/\.\([a-zA-Z]*\)$/_large.\1/i')

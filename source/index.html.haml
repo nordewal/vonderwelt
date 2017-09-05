@@ -4,7 +4,7 @@ title:
 
 .blog-grid
   .grid-sizer
-  - blog.articles[0...20].each do |article|
+  - blog.articles[0...40].each do |article|
     .grid-item.real-grid-item{'data-tags': "#{article.tags.join(' ')} #{article.date.year}"}
       = link_to(article) do
         %img.init{:src => image_small_path(article, 'main.jpg')}
