@@ -68,7 +68,7 @@ function Map() {
         var infowindow = new google.maps.InfoWindow();
 
         // Request JSON with GPS points
-        $.getJSON("https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt/coords.json", function(data) {
+        $.getJSON("https://s3.eu-central-1.wasabisys.com/vonderwelt/coords.json", function(data) {
           $.each(data, function(i, item){
             var marker = new google.maps.Marker({
               position: {lat: item['lat'], lng: item['lng']},
@@ -86,7 +86,7 @@ function Map() {
         });
 
         // Request JSON with GPS lines
-        $.getJSON("https://1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt/route.json", function(data) {
+        $.getJSON("https://s3.eu-central-1.wasabisys.com/vonderwelt/route.json", function(data) {
           var path = new google.maps.Polyline({
               path: data,
               geodesic: true,

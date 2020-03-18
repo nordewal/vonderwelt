@@ -89,7 +89,7 @@ configure :build do
   activate :asset_hash,
     :ignore => [/blog\/.*jpg$/i]
   activate :asset_host,
-    :host => '//1bbd085e69c44879b4aea5ce2016ffff.ds11s3ns.swisscom.com/vonderwelt',
+    :host => '//s3.eu-central-1.wasabisys.com/vonderwelt',
     :ignore => [/(js|css|ico|svg)$/]
 
   activate :external_pipeline,
