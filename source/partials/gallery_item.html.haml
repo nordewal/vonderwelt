@@ -1,6 +1,0 @@
-.grid-item
-  %figure.grid-content-container{:itemprop=>"associatedMedia", :itemscope=>'', :itemtype=>"http://schema.org/ImageObject"}
-    %a{:href=>image_large_path(current_article, img_name), :itemprop=>"contentUrl", :'data-size'=>image_large_size(current_article, img_name)}
-      %img{:src=>image_small_path(current_article, img_name), :itemprop=>"thumbnail", :alt=>image_desc(current_article, img_name)}
-    - if image_desc(current_article, img_name) != ""
-      %figcaption{:itemprop=>"caption description"}=image_desc(current_article, img_name)

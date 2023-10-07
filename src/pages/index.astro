@@ -1,0 +1,65 @@
+---
+import SiteLayout from '../layouts/site.astro';
+import { Image, getImage } from 'astro:assets'
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+	);
+
+// load small cover images into a map
+var images = new Map();
+await Promise.all(posts.map(async (post) => {
+	images.set(post.slug, await getImage({
+		src: post.data.cover,
+		width: 500,
+	}));
+}));
+---
+
+<SiteLayout title="">
+	<style lang="scss">
+		@import '../styles/index.scss';
+	</style>
+
+	<script>
+		import {isMobile} from "../scripts/utils.ts";
+
+		// remove 'fadeOutOnLoad' class, so that the blog titles vanish on page load
+		window.onload = function(){
+			var delay = 500
+			if (isMobile()){
+				delay = 2000
+			}
+			setTimeout(() => {
+				Array.from(document.getElementsByClassName("fadeOutOnLoad")).map((e) => e.classList.remove("fadeOutOnLoad"));
+			}, delay);
+		};
+	</script>
+
+		<div class="blog-grid">
+				{
+					posts.map((post) => (
+						
+						<div class="grid-item">
+							<a href={`/blog/${post.slug}/`} class="fadeOutOnLoad">
+								<Image src={post.data.cover} alt="" width="350"/>
+								
+									<p>
+										{post.data.title}
+										<br />
+										<span class="sub-title">{post.data.country}</span>
+										<br />
+										<FormattedDate className="sub-title" 
+											date={post.data.date}
+										/>
+									</p>
+								</Image>
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</SiteLayout>
