@@ -1,4 +1,4 @@
-# Blog überlandpost.ch
+# Blog vonderwelt.ch
 
 Created with Astro and deployed as a static page to Cloudflare pages.
 
