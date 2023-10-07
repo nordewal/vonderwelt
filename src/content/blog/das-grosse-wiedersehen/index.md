@@ -1,6 +1,7 @@
 ---
 title: Das grosse Wiedersehen
 date: 2017-07-02
+country: Kanada
 cover: ./main.jpg
 images:
   - img: ./20170630_152508_0.jpg

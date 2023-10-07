@@ -1,6 +1,7 @@
 ---
 title: Stadt der Liebe
 date: 2017-06-29
+country: Frankreich
 cover: ./main.jpg
 images:
   - img: ./20170623_171714_0.jpg

@@ -1,6 +1,7 @@
 ---
 title: Altai-Gebirge
 date: 2017-05-20
+country: Russland
 cover: ./main.jpg
 images:
   - img: ./P1140508_0.jpg

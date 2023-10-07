@@ -1,6 +1,7 @@
 ---
 title: 8 Länder in 8 Tagen
 date: 2017-04-05
+country: Griechenland, Türkei
 cover: ./main.jpg
 images:
   - img: ./C7C0162_0.jpg

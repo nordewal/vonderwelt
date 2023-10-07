@@ -1,6 +1,7 @@
 ---
 title: Wüstensöhne
 date: 2017-04-20
+country: Iran
 cover: ./main.jpg
 images:
   - img: ./C7C0588_0.jpg

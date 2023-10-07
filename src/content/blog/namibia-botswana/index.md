@@ -1,6 +1,7 @@
 ---
 title: Namibia & Botswana
 date: 2016-09-28
+country: Namibia & Botswana
 cover: ./main.jpg
 images:
   - img: ./PC7C7184_0.jpg

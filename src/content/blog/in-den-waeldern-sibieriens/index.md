@@ -1,6 +1,7 @@
 ---
 title: In den Wäldern Sibiriens
 date: 2017-06-10
+country: Russland
 cover: ./main.jpg
 images:
   - img: ./C7C2881_0.jpg

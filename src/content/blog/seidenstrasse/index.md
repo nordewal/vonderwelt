@@ -1,6 +1,7 @@
 ---
 title: Seidenstrasse
 date: 2017-05-02
+country: Usbekistan
 cover: ./main.jpg
 images:
   - img: ./C7C1374_0.jpg

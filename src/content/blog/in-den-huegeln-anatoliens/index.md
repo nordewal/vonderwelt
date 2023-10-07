@@ -1,6 +1,7 @@
 ---
 title: In den Hügeln Anatoliens
 date: 2017-04-06
+country: Türkei
 cover: ./main.jpg
 images:
   - img: ./C7C0310_0.jpg

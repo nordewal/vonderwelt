@@ -1,6 +1,7 @@
 ---
 title: Begegnungen im Iran
 date: 2017-04-22
+country: Iran
 cover: ./main.jpg
 images:
   - img: ./20170413_153439_0.jpg

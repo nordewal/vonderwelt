@@ -1,6 +1,7 @@
 ---
 title: Am Ende Asiens
 date: 2017-06-15
+country: Russland
 cover: ./main.jpg
 images:
   - img: ./20170610_124748_0.jpg

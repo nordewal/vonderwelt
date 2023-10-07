@@ -1,6 +1,7 @@
 ---
 title: Heimatgefühle
 date: 2017-05-13
+country: Kasachstan
 cover: ./main.jpg
 images:
   - img: ./P11402790.jpg

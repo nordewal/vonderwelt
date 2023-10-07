@@ -1,6 +1,7 @@
 ---
 title: Übergänge
 date: 2017-04-13
+country: Georgien & Armenien
 cover: ./main.jpg
 images:
   - img: ./C7C0472_0.jpg

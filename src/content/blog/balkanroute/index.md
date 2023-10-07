@@ -1,6 +1,7 @@
 ---
 title: Balkanroute
 date: 2017-04-02
+country: Kroatien, Montenegro & Albanien
 cover: ./main.jpg
 images:
   - img: ./C7C0026_0.jpg

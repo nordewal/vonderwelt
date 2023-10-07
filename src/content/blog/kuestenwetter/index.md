@@ -1,6 +1,7 @@
 ---
 title: Küstenwetter
 date: 2017-07-15
+country: Kanada & Alaska
 cover: ./main.jpg
 images:
   - img: ./20170703_151218_0.jpg

@@ -1,6 +1,7 @@
 ---
 title: Endlich geht's los!
 date: 2017-03-30
+country: Schweiz, Italien, Slowenien
 cover: ./main.jpg
 images:
   - img: ./AC7C9955_0.jpg

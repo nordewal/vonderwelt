@@ -1,6 +1,7 @@
 ---
 title: Gletscherwelten
 date: 2017-07-22
+country: Alaska
 cover: ./main.jpg
 images:
   - img: ./20170716_212738_0.jpg

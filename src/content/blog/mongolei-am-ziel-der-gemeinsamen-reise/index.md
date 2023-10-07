@@ -1,6 +1,7 @@
 ---
 title: Mongolei - am Ziel der gemeinsamen Reise
 date: 2017-05-25
+country: Mongolei
 cover: ./main.jpg
 images:
   - img: ./C7C2040_0.jpg

@@ -1,6 +1,7 @@
 ---
 title: Weisse Überraschung
 date: 2017-04-09
+country: Türkei
 cover: ./main.jpg
 images:
   - img: ./P1130613_0.jpg

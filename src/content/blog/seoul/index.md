@@ -1,6 +1,7 @@
 ---
 title: Seoul
 date: 2017-06-20
+country: Südkorea
 cover: ./main.jpg
 images:
   - img: ./C7C5445_0.jpg

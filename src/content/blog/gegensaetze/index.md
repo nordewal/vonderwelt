@@ -1,6 +1,7 @@
 ---
 title: Gegensätze
 date: 2017-04-28
+country: Aserbaidschan
 cover: ./main.jpg
 images:
   - img: ./20170423_210127_0.jpg
