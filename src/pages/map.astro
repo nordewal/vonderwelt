@@ -20,6 +20,21 @@ import SiteLayout from "../layouts/site.astro";
             width: 100% !important;
             height: 100% !important;
         }
+        #legend {
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #000;
+            .planned {
+                color: #ff4400;
+            }
+            .done {
+                color: #0000ff;
+            }
+            img {
+                display: inline-block;
+            }
+        }
     </style>
 
     <script type="text/javascript">
@@ -163,10 +178,43 @@ import SiteLayout from "../layouts/site.astro";
 
             var infowindow = new google.maps.InfoWindow();
 
+            // Draw (overnight) points from the satellite phone
             getJSON(
-                "https://s3.eu-central-2.wasabisys.com/uberlandpost/public-coords.json",
+                "https://s3.eu-central-1.wasabisys.com/vonderwelt/coords.json",
                 function (data) {
-                    // Draw line between locations
+                    $.each(data, function (i, item) {
+                        var marker = new google.maps.Marker({
+                            position: { lat: item["lat"], lng: item["lng"] },
+                            map: map,
+                            icon: "https://mt.google.com/vt/icon/name=icons/spotlight/camping_L_8x.png&scale=1",
+                            title: item["desc"],
+                        });
+
+                        google.maps.event.addListener(
+                            marker,
+                            "click",
+                            function () {
+                                infowindow.setContent(
+                                    "<h4>" +
+                                        marker.title +
+                                        " CEST</h4><p>Lat: " +
+                                        item["lat"] +
+                                        "<br/>Long: " +
+                                        item["lng"] +
+                                        "</p>",
+                                );
+                                infowindow.setPosition(marker.position);
+                                infowindow.open(map);
+                            },
+                        );
+                    });
+                },
+            );
+
+            // Request JSON with GPS lines (ridden paths)
+            getJSON(
+                "https://s3.eu-central-1.wasabisys.com/vonderwelt/coords.json",
+                function (data) {
                     var path = new google.maps.Polyline({
                         path: data,
                         geodesic: true,
@@ -175,65 +223,120 @@ import SiteLayout from "../layouts/site.astro";
                         strokeWeight: 2,
                     });
                     path.setMap(map);
-
-                    // Draw a tent icon for the first point of a day
-                    var lastDay = -1;
-                    var dayCnt = 0;
-                    data.forEach((p) => {
-                        // we don't have the effective timezone, so we guess the offset from GMT based on the lontitude:
-                        // 360 degress is once around the earth, which has 24 hours. So 15 degrees is 1 hour offset.
-                        var ts = Date.parse(p["ts"]);
-                        var offsetHours = Math.round((24 / 360) * p["lng"]);
-                        var offsetDate = new Date(
-                            ts + offsetHours * 60 * 60 * 1000
-                        );
-
-                        var day = offsetDate.getUTCDate();
-                        if (lastDay == -1) {
-                            lastDay = day;
-                        }
-                        if (lastDay != day) {
-                            var marker = new google.maps.Marker({
-                                position: { lat: p["lat"], lng: p["lng"] },
-                                map: map,
-                                icon: "https://mt.google.com/vt/icon/name=icons/spotlight/camping_L_8x.png&scale=1",
-                                title: "Nacht #" + ++dayCnt,
-                            });
-
-                            var dayBeforeNight = new Date(
-                                offsetDate - 86400 * 1000
-                            );
-                            var formattedDate =
-                                dayBeforeNight.toLocaleDateString("de-CH", {
-                                    year: "numeric",
-                                    month: "short",
-                                    day: "numeric",
-                                });
-                            google.maps.event.addListener(
-                                marker,
-                                "click",
-                                function () {
-                                    infowindow.setContent(
-                                        "<p><b>" +
-                                            marker.title +
-                                            "</b><br/>" +
-                                            formattedDate +
-                                            "<br/><br/>Lat: " +
-                                            p["lat"] +
-                                            "<br/>Long: " +
-                                            p["lng"] +
-                                            "</p>"
-                                    );
-                                    infowindow.setPosition(marker.position);
-                                    infowindow.open(map);
-                                }
-                            );
-                        }
-                        lastDay = day;
-                    });
-                }
+                },
             );
+            // Draw line for planned route
+            var lineSymbol = {
+                path: "M 0,-1 0,1",
+                strokeOpacity: 1,
+                scale: 4,
+                strokeColor: "#ff4400",
+                strokeWeight: 2,
+            };
+            var lineCoords = [
+                { lat: 46.97405, lng: 7.44633 },
+                { lat: 45.49094, lng: 12.23876 },
+                { lat: 45.64953, lng: 13.77681 },
+                { lat: 43.50733, lng: 16.43981 },
+                { lat: 42.65019, lng: 18.09413 },
+                { lat: 40.64007, lng: 22.94442 },
+                { lat: 41.00823, lng: 28.97838 },
+                { lat: 39.85915, lng: 30.56396 },
+                { lat: 38.6469, lng: 34.82116 },
+                { lat: 39.69225, lng: 37.06105 },
+                { lat: 41.00977, lng: 39.7083 },
+                { lat: 41.61928, lng: 41.63675 },
+                { lat: 41.98603, lng: 43.59649 },
+                { lat: 41.71571, lng: 44.8262 },
+                { lat: 41.60702, lng: 46.63378 },
+                { lat: 40.6315, lng: 48.65156 },
+                { lat: 45.2515, lng: 55.34156 },
+                { lat: 39.76846, lng: 64.45582 },
+                { lat: 39.62803, lng: 66.97497 },
+                { lat: 41.52198, lng: 69.39487 },
+                { lat: 43.03586, lng: 71.14604 },
+                { lat: 43.22202, lng: 76.85127 },
+                { lat: 49.33575, lng: 81.58202 },
+                { lat: 51.2086, lng: 81.1148 },
+                { lat: 52.51622, lng: 82.73803 },
+                { lat: 53.3571, lng: 83.82019 },
+                { lat: 52.03852, lng: 85.91952 },
+                { lat: 50.76139, lng: 86.12344 },
+                { lat: 49.98884, lng: 92.05387 },
+                { lat: 47.88657, lng: 106.90491 },
+                { lat: 51.96223, lng: 108.63817 },
+                { lat: 52.79802, lng: 116.78607 },
+                { lat: 54.45794, lng: 122.1859 },
+                { lat: 50.23709, lng: 129.13061 },
+                { lat: 48.51584, lng: 131.21942 },
+                { lat: 48.63538, lng: 135.17439 },
+                { lat: 42.81207, lng: 132.80346 },
+                { lat: 36.66841, lng: 128.84765 },
+                { lat: 50.51342, lng: -122.87109 },
+                { lat: 57.9848, lng: -132.36328 },
+                { lat: 60.93043, lng: -142.03125 },
+                { lat: 61.85614, lng: -149.76562 },
+                { lat: 64.47279, lng: -155.03906 },
+                { lat: 68.20421, lng: -149.58984 },
+                { lat: 66.58321, lng: -140.625 },
+                { lat: 61.27023, lng: -118.65234 },
+                { lat: 57.51582, lng: -119.0039 },
+                { lat: 54.05938, lng: -108.45703 },
+                { lat: 51.3992, lng: -99.49218 },
+                { lat: 44.59046, lng: -87.71484 },
+                { lat: 37.02009, lng: -76.8164 },
+            ];
+            var path = new google.maps.Polyline({
+                path: lineCoords,
+                strokeOpacity: 0,
+                icons: [
+                    {
+                        icon: lineSymbol,
+                        offset: "0",
+                        repeat: "20px",
+                    },
+                ],
+            });
+
+            path.setMap(map);
+
+            // Draw line
+            var lineCoords2 = [
+                { lat: 19.47695, lng: -89.29687 },
+                { lat: 14.09395, lng: -88.76953 },
+                { lat: 10.6606, lng: -84.02343 },
+                { lat: 8.75479, lng: -79.27734 },
+                { lat: 1.23037, lng: -74.53125 },
+            ];
+            var path2 = new google.maps.Polyline({
+                path: lineCoords2,
+                strokeOpacity: 0,
+                icons: [
+                    {
+                        icon: lineSymbol,
+                        offset: "0",
+                        repeat: "20px",
+                    },
+                ],
+            });
+
+            path2.setMap(map);
+
+            // draw legend
+            var legend = document.getElementById("legend");
+            map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
         }
     </script>
     <div id="map"></div>
+    <div id="legend">
+        <p>
+            <span class="done"> —— gefahrene Route</span>
+            <br />
+            <span class="planned">—— geplante Route</span>
+            <br />
+            <img
+                src="https://mt.google.com/vt/icon/name=icons/spotlight/camping_L_8x.png&scale=1"
+            />
+        </p> Übernachtungen
+    </div>
 </SiteLayout>
