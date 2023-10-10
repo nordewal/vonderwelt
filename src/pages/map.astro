@@ -182,7 +182,7 @@ import SiteLayout from "../layouts/site.astro";
             getJSON(
                 "https://s3.eu-central-1.wasabisys.com/vonderwelt/coords.json",
                 function (data) {
-                    $.each(data, function (i, item) {
+                    data.forEach(function (item) {
                         var marker = new google.maps.Marker({
                             position: { lat: item["lat"], lng: item["lng"] },
                             map: map,
@@ -213,7 +213,7 @@ import SiteLayout from "../layouts/site.astro";
 
             // Request JSON with GPS lines (ridden paths)
             getJSON(
-                "https://s3.eu-central-1.wasabisys.com/vonderwelt/coords.json",
+                "https://s3.eu-central-1.wasabisys.com/vonderwelt/route.json",
                 function (data) {
                     var path = new google.maps.Polyline({
                         path: data,
