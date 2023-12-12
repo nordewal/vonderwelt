@@ -8,7 +8,7 @@ const { title } = Astro.props;
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <BaseHead
-            title={`vonderwelt - ${title}`}
+            title={title == "" ? "vonderwelt.ch" : `${title}`}
             description="Blog von vonderwelt.ch"
         />
         <style lang="scss">
