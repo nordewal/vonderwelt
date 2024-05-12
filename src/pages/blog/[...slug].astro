@@ -42,7 +42,7 @@ const images = await Promise.all(
 		@import "photoswipe/style.css";
 	</style>
 	<script>
-		import Masonry from "masonry-layout";
+    import Masonry from "masonry-layout";
 		import imagesLoaded from "imagesloaded";
 		import lightbox from "../../scripts/lightbox.ts";
 
@@ -56,6 +56,22 @@ const images = await Promise.all(
 		// Re-arrange grid as images are loaded, otherwise it looks broken
 		imagesLoaded("#gallery", () => {}).on("progress", function () {
 			msnry.layout();
+		});
+
+		// Re-arrange grid when the window size changes
+		addEventListener("resize", (event) => {
+			// little sleep, so the navigation bar can adjust first
+			setTimeout(()=>{
+				msnry.layout()
+			}, 300);
+		});
+
+		// Re-arrange grid when leaving fullscreen
+		addEventListener("fullscreenchange", (event) => {
+			// little sleep, full-screen animation can finish
+			setTimeout(()=>{
+				msnry.layout()
+			}, 300);
 		});
 
 		// Fullscreen images when clicking on it
