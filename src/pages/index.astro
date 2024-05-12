@@ -25,7 +25,7 @@ await Promise.all(posts.map(async (post) => {
 	</style>
 		<div class="blog-grid">
 				{
-					posts.map((post) => (
+					posts.reverse().map((post) => (
 						<div class="grid-item">
 							<a href={`/blog/${post.slug}/`}>
 								<Image src={post.data.cover} alt="" width="600" quality="mid"/>
